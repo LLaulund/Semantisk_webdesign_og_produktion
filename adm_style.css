@@ -1,0 +1,474 @@
+/*Generel styling*/
+body{
+  margin: auto;
+  background-color: #25476a;
+  color:white;
+  font-family: roboto, lato;
+  }
+
+main{
+  padding:15px;
+}
+
+/*Styling for footer*/
+/*footeren få position relative og bottom 0, så den ligger sig i bunds på siderne
+  som har en content-længde som gå over folden af hjemmesiden */
+footer{
+  background-color: black;
+  color:white;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: relative;
+  bottom:0;
+  width: 100%;
+  z-index: 2;
+}
+
+
+/*Footer Styling*/
+
+/*Stødte ind i problemet at på siderne hvor content-længden var over folden
+  af hjemmesiden - så ville footeren svæve i midten af skærmen.
+  For at løse dette har de siderne fået en relative position i html tagget samt en
+  margin bottom på 200 px. Det giver 200 px plads i bunden af siden og der er
+  footer placeret ved at få en bottom 0px og en height på 200px.
+
+  Har efterfølgende givet .oversigt klassen en margin-bottom på 20 px for at
+  sikre at der er luft mellem footer og oversigt boksen. */
+
+  /*
+  Koden fundet på:
+  https://stackoverflow.com/questions/10470241/how-to-position-a-footer-element-relative-to-the-bottom-of-the-page
+  */
+
+  html{
+      position: relative;
+      min-height: 100%;
+  }
+
+  body{
+      margin-bottom: 200px;
+  }
+
+  footer{
+      position: absolute;
+      bottom:0px;
+      width:100%;
+      height: 200px;
+  }
+
+  .oversigt{
+      margin-bottom: 20px;
+  }
+
+  /*Responsive billeder og max bredde*/
+img{
+  width:100%;
+  height:auto;
+  max-width: 600px;
+}
+
+  /*Bruges til at give alt en left margin for at elementerne ikke ligger bag sidenav*/
+.left_margin{
+  margin-left: 160px;
+}
+
+/*Extra styling til velkommen siden*/
+
+/*ID bliver brugt til elementer som skal
+  placeres i midten og skal have luft til navbaren. Bliver pt.
+  brugt til velkom siden */
+#velkommen{
+  text-align:center;
+  padding-top:80px;
+}
+
+#velkommen h1{
+  font-size:40px;
+}
+
+.velkom_knap{
+  background-color: white;
+  padding: 20px 40px;
+  font-size: 15px;
+  font-weight:bold;
+  cursor: pointer;
+  color: black;
+  border-radius: 10px;
+}
+
+.velkom_knap:hover{
+  background-color: #f0732b;
+}
+
+  /*Tjek hvad fieldset bruges til!*/
+fieldset{
+  display: flex!important;
+}
+
+/* Styling for Admin kommentarfunktion*/
+
+/* Kode for overflow-wrap fundet her: https://css-tricks.com/almanac/properties/o/overflow-wrap/#:~:text=The%20overflow%2Dwrap%20property%20in,layout%20problems%20due%20to%20overflow.  */
+/* Bruger funktionen for at breake teksten, da den ellers flyder ud over borderen */
+ul p{
+  overflow-wrap: break-word;
+  padding:5px;
+}
+
+.loggen {
+  border:solid;
+  background-color: white;
+  color:black;
+  margin-left:160px;
+  max-width:52%;
+  margin-top:20px;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:10px;
+  padding: 5px;
+}
+
+/* Styling for klasserne form og oversigt, egen arbejde */
+/* Form bliver brugt til alle former hvor data indtastes */
+/* Oversigt bruges under alle former for at vise andre data */
+
+.form, .oversigt{
+  background-color: white;
+  color: #2E3FC2;
+  font-weight: bold;
+  width: 50%;
+  padding: 20px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.form input[type=submit] {
+  background-color: #2E3FC2;
+  color: white;
+  padding:15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Extra styling for klassen form kode hentet fra: https://www.w3schools.com/css/tryit.asp?filename=trycss_forms */
+/* Giver submit knappen på formerne en anden baggrundsfarve når der hoveres over dem */
+.form input[type=submit]:hover {
+  background-color: #4C27C9;
+}
+
+/* Extra styling for form elementer, egen arbejde */
+.form textarea{
+	  width: 100%;
+  	margin: 8px 0;
+  	display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Extra styling for form elementer, egen arbejde */
+.form input{
+	 width: 100%;
+  	margin: 8px 0;
+  	display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Extra styling for login og opret formerne */
+
+.login_form{
+  text-align: center;
+    border:solid;
+    background-color: white;
+    margin-left:25%;
+    margin-right:25%;
+    padding: 5px;
+    overflow: auto;
+    margin-top: 5%;
+    margin-bottom: 15%;
+    color:black;
+  }
+
+  .login_form h2{
+    color:#3785d4;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .login_form div{
+    padding: 10px;
+  }
+
+/* Kode for Grid systemet, kode justeret fra: https://www.w3schools.com/css/tryit.asp?filename=trycss_grid  */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:10px;
+}
+
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for cards, code justeret fra: https://www.w3schools.com/howto/howto_css_cards.asp */
+/* Cards bliver brugt på siden Tilføj data, som bruges på mobile enheder da sidenav
+  menuen ikke kan vises på mindre skærme */
+
+#cards{
+  text-align: center;
+  margin-top: 30%;
+}
+
+.card {
+  border:solid;
+  background-color: white;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.card .container {
+  padding: 2px 16px;
+}
+
+.card img {
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+/* Extra styling for card button, kode justeret fra: https://www.w3schools.com/csS/tryit.asp?filename=trycss_buttons_color  */
+.card button{
+  margin-bottom: 10px;
+  background-color: #2E3FC2;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight:bold;
+  cursor: pointer;
+}
+
+.card button:hover{
+  background-color: #4C27C9;
+}
+
+
+/* Style for Sidebar, kode justeret fra: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed  */
+/* Side menu for admin område har bredde på 140 px
+  derfor har klassen .left_margin på 141 px
+*/
+.sidenav {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #393445;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 60px;
+  color: white;
+}
+
+.sidenav h3{
+  text-align: center;
+}
+
+.sidenav a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 15px;
+}
+
+.sidenav a:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+
+/* Kode for Sociale medier Ikoner kode hentet fra:https://www.w3schools.com/howto/howto_css_social_media_buttons.asp*/
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+/* Style for navbar, kod hentet fra: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp */
+nav{
+  background-color: black;
+  position: fixed;
+  top:0;
+  width:100%;
+  z-index: 4;
+}
+
+.topnav {
+  margin-left:34%;
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 3;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  color: white;
+}
+
+.topnav .burger {
+  display: none;
+}
+
+
+/* Media Queries */
+
+/* Media Queries for navbar, kode hentet fra: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp*/
+  @media only screen and (max-width: 1000px) {
+    .topnav a {
+      display: none;
+    }
+
+    .topnav a.burger {
+      float: right;
+      display: block;
+      background-color: black;
+    }
+
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .burger {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: center;
+    }
+
+  /* Rettet margin-left & right til 0 på mindre skærme*/
+    .topnav{
+      margin: auto;
+    }
+
+    /* Andre Media Queries*/
+
+    .sidenav {
+      display: none;
+    }
+
+    main section{
+      margin-left: auto;
+    }
+
+    /* Opstod problem at på mobile enheder lægger footeren sig over indhold. Derfor
+      har jeg sat footerens position til unset for at overrule reglen absolute */
+
+    #footer {
+        position: unset;
+    }
+
+    /* add_data_forms er klassen for main elementerne på alle sider hvor der tilføjes
+      indhold på databasen. Grund til jeg har gjort det er at på mobile enheder ligger
+      navbaren sig over indholdet, derfor tilføjet margin-top for at rykke indhold ned
+    */
+
+    .add_data_forms{
+      margin-top:30%;
+    }
+
+
+    .form, .oversigt {
+      width: 100%;
+      padding: 5px;
+      }
+
+    /* giv select i formerne en max width for at undgå at de flyder ud over skærmen/form boksen*/
+    select{
+      max-width:70%;
+    }
+
+    .grid-container {
+      display: block;
+      }
+
+    .login_form{
+      margin-top:30%;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .loggen{
+      max-width: 100%;
+      margin-top:5px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+
+  /* Siden adm_add_content er kun relevant på mobile enheder
+    da jeg har sidenav menuen til desktop versioner. For at fjerne
+    menu item "Tilføj data" bruger jeg denne media query */
+  @media screen and (min-width: 1000px) {
+    #add_content {
+      display: none;
+      }
+    }
+
+  @media screen and (max-width: 600px) {
+    .card_grid-container{
+      display: grid;
+      grid-template-columns: auto;
+    }
+  }
